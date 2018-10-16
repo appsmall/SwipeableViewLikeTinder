@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="SwipeableCardView" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vqz-2d-g9W">
+                                <rect key="frame" x="56.5" y="212.5" width="262.5" height="262.5"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="vqz-2d-g9W" secondAttribute="height" multiplier="1:1" id="aHp-Ah-yry"/>
+                                </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="mO4-cS-zBY" appends="YES" id="cQV-Mg-AAd"/>
+                                </connections>
+                            </view>
+                            <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="thumb-down" translatesAutoresizingMaskIntoConstraints="NO" id="ywK-OR-kCg">
+                                <rect key="frame" x="162.5" y="318.5" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="58m-4V-9qv"/>
+                                    <constraint firstAttribute="width" secondItem="ywK-OR-kCg" secondAttribute="height" multiplier="1:1" id="BmT-7z-g4e"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZRc-sW-t1u">
+                                <rect key="frame" x="16" y="129.5" width="343" height="33"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="Reset">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="resetButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="75U-jS-YbD"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="ywK-OR-kCg" firstAttribute="centerX" secondItem="vqz-2d-g9W" secondAttribute="centerX" id="3sv-oH-pHM"/>
+                            <constraint firstItem="vqz-2d-g9W" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.7" id="9MS-mz-8O2"/>
+                            <constraint firstItem="ywK-OR-kCg" firstAttribute="centerY" secondItem="vqz-2d-g9W" secondAttribute="centerY" id="G1G-8I-cAf"/>
+                            <constraint firstItem="vqz-2d-g9W" firstAttribute="top" secondItem="ZRc-sW-t1u" secondAttribute="bottom" constant="50" id="Hoe-lT-Dvw"/>
+                            <constraint firstItem="ZRc-sW-t1u" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="hIH-HC-MQC"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ZRc-sW-t1u" secondAttribute="trailing" constant="16" id="ktL-Q2-FBt"/>
+                            <constraint firstItem="vqz-2d-g9W" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="tZ1-8P-UIT"/>
+                            <constraint firstItem="vqz-2d-g9W" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="v4R-GA-pcQ"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <outlet property="imageView" destination="ywK-OR-kCg" id="Nhf-bf-0dg"/>
+                        <outlet property="movedView" destination="vqz-2d-g9W" id="Vil-2h-dir"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="mO4-cS-zBY">
+                    <connections>
+                        <action selector="viewPanGestureAction:" destination="BYZ-38-t0r" id="SDw-nK-sGy"/>
+                    </connections>
+                </panGestureRecognizer>
+            </objects>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="thumb-down" width="25.600000381469727" height="25.600000381469727"/>
+    </resources>
+</document>
