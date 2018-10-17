@@ -13,13 +13,21 @@ class ViewController: UIViewController {
     @IBOutlet weak var movedView: UIView!
     @IBOutlet weak var imageView: UIImageView!
     
+    var divisor: CGFloat!
     
+    
+    override func viewDidLoad() {
+        divisor = (view.frame.width / 2) / 0.61
+    }
 
     @IBAction func viewPanGestureAction(_ sender: UIPanGestureRecognizer) {
         let point = sender.translation(in: movedView)
         let xFromCenter = movedView.center.x - view.center.x
         movedView.center = CGPoint(x: view.center.x + point.x, y: view.center.y + point.y)
 
+        let scale = min(100/abs(xFromCenter), 1)
+        movedView.transform = CGAffineTransform(rotationAngle: (xFromCenter / divisor)).scaledBy(x: scale, y: scale)
+        
         if xFromCenter > 0 {
             //Moving in +ve direction
             imageView.image = UIImage(named: "thumb-up")
@@ -65,6 +73,7 @@ class ViewController: UIViewController {
             self.movedView.center = self.view.center
             self.imageView.alpha = 0
             self.movedView.alpha = 1
+            self.movedView.transform = .identity
         }
     }
 }
