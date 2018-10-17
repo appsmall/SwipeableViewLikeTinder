@@ -13,6 +13,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var movedView: UIView!
     @IBOutlet weak var imageView: UIImageView!
     
+    // used to get values for rotating movedView angle
     var divisor: CGFloat!
     
     
